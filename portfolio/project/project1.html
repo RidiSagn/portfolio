@@ -33,7 +33,106 @@
       </div>
     </div>
   </nav>
+<style>
 
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #e5e5e5;
+    color: #000000;
+  }
+  
+  .hero-section {
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .card {
+    border: none;
+
+  }
+  
+  .card-title {
+    color: #1a1a1a;
+  }
+  
+  .btn-primary {
+    background-color: #005fa2;
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #5181bc;
+  }
+
+  .video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    z-index: -1; 
+  }
+  .content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    padding: 20px;
+  }
+  .hero-section {
+    text-align: center;
+    padding: 100px 20px;
+  }
+section{
+margin: 5px;
+ }
+ .card-img{
+  width: 100%;
+  height: 100%;
+ }
+ .img-fluid{
+  width: 100%;
+  height: 100%;
+ }
+ .modern-button {
+  color: white;
+  padding: 15px 40px;
+  font-size: 18px;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 50px;
+  text-transform: uppercase;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.modern-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: 0.5s;
+}
+
+.modern-button:hover::before {
+  left: 0;
+}
+
+.modern-button:hover {
+  background-color: white;
+  color: black;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.3);
+}
+</style>
   <div class="menu">
    <a href="../index.html"><button class="menu-button back-button">Вернуться назад</button></a>
    <a href="project2.html">  <button class="menu-button next-button">Следующий проект</button></a>

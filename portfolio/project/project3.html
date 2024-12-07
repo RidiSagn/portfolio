@@ -16,12 +16,200 @@
    
   </style>
 </head>
+<div class="menu">
+  <a href="../index.html"><button class="menu-button back-button">Вернуться назад</button></a>
+  <a href="project4.html">  <button class="menu-button next-button">Следующий проект</button></a>
+ </div>
+<body class="bus">
+  <style>
+    
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
 
-<body>
-    <div class="menu">
-        <a href="../index.html"><button class="menu-button back-button">Вернуться назад</button></a>
-      
+.container {
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.header {
+    background-color: #2a2a2a;
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #3a3a3a;
+}
+
+.header h2 {
+    margin: 0;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+
+.profile {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #3a3a3a;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    background-color: #6a6a6a;
+    border-radius: 50%;
+    font-size: 24px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+.info {
+    line-height: 1.5;
+}
+
+.info h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.info p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #b5b5b5;
+}
+
+
+.filters {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: #2a2a2a;
+    border-bottom: 1px solid #3a3a3a;
+}
+
+.filters button {
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #ffffff;
+    background-color: transparent;
+    border: 1px solid #3a3a3a;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filters button.active,
+.filters button:hover {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+
+#reviews {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.review {
+    background-color: #1e1e1e;
+    border: 1px solid #3a3a3a;
+    border-radius: 10px;
+    padding: 10px;
+    color: #ffffff;
+}
+
+.review .name {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.review .date {
+    font-size: 12px;
+    color: #b5b5b5;
+    margin: 5px 0 0;
+}
+
+.review.positive {
+    border-left: 4px solid #28a745;
+}
+
+.review.negative {
+    border-left: 4px solid #dc3545;
+}
+
+  </style>
+  <div class="container">
+    <div class="header">
+        <h2></h2>
+    </div>
+    <div class="profile">
+        <div class="avatar">M</div>
+        <div class="info">
+            <h3>Moneyed Limpkin</h3>
+            <p>25 сделок • 84.00% выполнено • $187.98</p>
+            <p>Зарегистрирован 6 декабря 2024</p>
+        </div>
+    </div>
+    <div class="filters">
+        <button onclick="filterReviews('all')" >Все - 5</button>
+        <button onclick="filterReviews('positive')">👍 4</button>
+        <button onclick="filterReviews('negative')">👎 1</button>
+    </div>
+    <div id="reviews"></div>
 </div>
+<script>const reviews = [
+  { name: "Rancid Centipede", date: "7 декабря в 11:42", bank: "Monobank", sentiment: "positive" },
+  { name: "hermanhkk", date: "7 декабря в 10:31", bank: "Monobank", sentiment: "positive" },
+  { name: "stas1k77", date: "7 декабря в 10:24", bank: "Monobank", sentiment: "positive" },
+  { name: "Songless Seahog", date: "7 декабря в 02:25", bank: "Monobank", sentiment: "positive" },
+  { name: "Hispid Acaciariat", date: "7 декабря в 02:17", bank: "Monobank", sentiment: "negative" },
+];
+
+function displayReviews(filteredReviews) {
+  const reviewsContainer = document.getElementById("reviews");
+  reviewsContainer.innerHTML = "";
+  filteredReviews.forEach(review => {
+      const reviewDiv = document.createElement("div");
+      reviewDiv.className = `review ${review.sentiment}`;
+      reviewDiv.innerHTML = `
+          <p><strong>${review.name}</strong></p>
+          <p>${review.date} • ${review.bank}</p>
+      `;
+      reviewsContainer.appendChild(reviewDiv);
+  });
+}
+
+function filterReviews(filter) {
+  if (filter === "all") {
+      displayReviews(reviews);
+  } else {
+      const filtered = reviews.filter(review => review.sentiment === filter);
+      displayReviews(filtered);
+  }
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  filterReviews("all");
+});
+</script>
 </body>
 
 </html>
